@@ -56,7 +56,7 @@ namespace BulkyWeb.Areas.Customer.Controllers
         public IActionResult Details(ShoppingCart shoppingCart)
         {
             var claimsIdentity = (ClaimsIdentity)User.Identity;
-            var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value; //taking user id
             shoppingCart.ApplicationUserId = userId;
 
             ShoppingCart cartFromDb = _unitOfWork.ShoppingCart.Get(u=>u.ApplicationUserId == userId 
